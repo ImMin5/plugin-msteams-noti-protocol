@@ -1,7 +1,7 @@
 __all__ = ['PluginInfo']
 
-from spaceone.api.notification.plugin import protocol_pb2
-from spaceone.core.pygrpc.message_type import *
+from cloudforet.api.notification.plugin import protocol_pb2
+from cloudforet.core.pygrpc.message_type import *
 
 
 def PluginInfo(result):

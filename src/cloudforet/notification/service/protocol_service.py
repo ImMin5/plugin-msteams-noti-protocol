@@ -19,8 +19,16 @@ class ProtocolService(BaseService):
             'data': {
                 'schema': {
                     'properties': {
+                        'token': {
+                            'description': 'Incoming Webhook URL created by your channel',
+                            'minLength': 1,
+                            'title': 'Incoming Webhook',
+                            'type': 'string',
+                            'examples': 'https://...',
+                        }
                     },
                     'required': [
+                        'token'
                     ],
                     'type': 'object'
                 }
