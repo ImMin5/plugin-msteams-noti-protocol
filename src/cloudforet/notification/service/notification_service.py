@@ -25,4 +25,21 @@ class NotificationService(BaseService):
                 - notification_type : INFO || ERROR || SUCCESS || WARNING
                 - secret_data
         """
+        print(f'service dispatch {params}')
         channel_data = params.get('channel_data', {})
+        notification_type = params['notification_type']
+        message = params['message']
+        kwargs = {}
+
+        hookurl = channel_data.get('hookurl')
+
+        noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
+        message_block = []
+        message_attachment = {}
+
+        noti_mgr.dispatch(hookurl, message_block, **kwargs)
+
+        ## image
+
+
+

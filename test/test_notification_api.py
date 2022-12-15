@@ -9,8 +9,9 @@ from google.protobuf.json_format import MessageToDict
 
 _LOGGER = logging.getLogger(__name__)
 
-WEBHOOK_URL = 'https://megazone0.webhook.office.com/webhookb2/52026950-f304-44f0-b4af-87284eae1698@97f42f55-f1db-4804-b1eb-08db083efd4f/IncomingWebhook/9c3b45bf07234192922d4cc413f6a03d/76df7ac2-dc90-40e9-91a3-16c27c61ecc4'
-if WEBHOOK_URL == None:
+HOOK_URL = os.environ.get('HOOK_URL', None)
+
+if HOOK_URL == None:
     print("""
 ##################################################
 # ERROR
@@ -27,9 +28,10 @@ class TestSlackNotification(TestCase):
     config = utils.load_yaml_from_file(
         os.environ.get('SPACEONE_TEST_CONFIG_FILE', './config.yml'))
     endpoints = config.get('ENDPOINTS', {})
+    print(endpoints)
     secret_data = {}
     channel_data = {
-        'token': WEBHOOK_URL,
+        'hookurl': HOOK_URL,
     }
 
     def test_init(self):

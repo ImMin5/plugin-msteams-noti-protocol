@@ -21,14 +21,14 @@ class ProtocolService(BaseService):
                     'properties': {
                         'token': {
                             'description': 'Incoming Webhook URL created by your channel',
-                            'minLength': 1,
+                            'minLength': 4,
                             'title': 'Incoming Webhook',
                             'type': 'string',
-                            'examples': 'https://...',
+                            'examples': ['https://...']
                         }
                     },
                     'required': [
-                        'token'
+                        'hookurl'
                     ],
                     'type': 'object'
                 }
